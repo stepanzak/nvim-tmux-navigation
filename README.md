@@ -188,6 +188,65 @@ end
 }
 ```
 
+You can also use Lazy's lazy-loading and load the plugin on-demand only when pressing the keys.
+This will make your neovim startup time faster and also integrates with other tools like [Which Key](https://github.com/folke/which-key.nvim).
+
+```lua
+{
+  "alexghergh/nvim-tmux-navigation",
+  lazy = true,
+  keys = {
+    {
+      "<C-h>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
+      end,
+      desc = "Move one nvim/tmux pane to the left",
+    },
+    {
+      "<C-j>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateDown()
+      end,
+      desc = "Move one nvim/tmux pane down",
+    },
+    {
+      "<C-k>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateUp()
+      end,
+      desc = "Move one nvim/tmux pane up",
+    },
+    {
+      "<C-l>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateRight()
+      end,
+      desc = "Move one nvim/tmux pane to the right",
+    },
+    {
+      "<C-\\>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateLastActive()
+      end,
+      desc = "Move to the last active nvim/tmux pane",
+    },
+    {
+      "<C-Space>",
+      function()
+        require("nvim-tmux-navigation").NvimTmuxNavigateNext()
+      end,
+      desc = "Move to the next nvim/tmux pane",
+    },
+  },
+
+  -- You don't have to include the "config" function if it's empty.
+  -- config = function()
+  --   require("nvim-tmux-navigation").setup()
+  -- end,
+}
+```
+
 ## Usage
 
 If you went through the [Configuration](#configuration), then congrats! You
