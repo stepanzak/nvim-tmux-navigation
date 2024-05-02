@@ -195,55 +195,49 @@ This will make your neovim startup time faster and also integrates with other to
 {
   "alexghergh/nvim-tmux-navigation",
   lazy = true,
+  cmd = {
+    "NvimTmuxNavigateLeft",
+    "NvimTmuxNavigateDown",
+    "NvimTmuxNavigateUp",
+    "NvimTmuxNavigateRight",
+    "NvimTmuxNavigateLastActive",
+    "NvimTmuxNavigateNext",
+  },
   keys = {
     {
       "<C-h>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
-      end,
+      "<cmd>NvimTmuxNavigateLeft<cr>",
       desc = "Move one nvim/tmux pane to the left",
     },
     {
       "<C-j>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateDown()
-      end,
+      "<cmd>NvimTmuxNavigateDown<cr>",
       desc = "Move one nvim/tmux pane down",
     },
     {
       "<C-k>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateUp()
-      end,
+      "<cmd>NvimTmuxNavigateUp<cr>",
       desc = "Move one nvim/tmux pane up",
     },
     {
       "<C-l>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateRight()
-      end,
+      "<cmd>NvimTmuxNavigateRight<cr>",
       desc = "Move one nvim/tmux pane to the right",
     },
     {
       "<C-\\>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateLastActive()
-      end,
+      "<cmd>NvimTmuxNavigateLastActive<cr>",
       desc = "Move to the last active nvim/tmux pane",
     },
     {
       "<C-Space>",
-      function()
-        require("nvim-tmux-navigation").NvimTmuxNavigateNext()
-      end,
+      "<cmd>NvimTmuxNavigateNext<cr>"
       desc = "Move to the next nvim/tmux pane",
     },
   },
-
-  -- You don't have to include the "config" function if it's empty.
-  -- config = function()
-  --   require("nvim-tmux-navigation").setup()
-  -- end,
+  config = function()
+    require("nvim-tmux-navigation").setup()
+  end,
 }
 ```
 
